@@ -1,6 +1,7 @@
 import '../widgets/consts.dart';
 import '../widgets/Mybutton.dart';
 import '../widgets/Mylistetile.dart';
+import '../components/apploacal.dart';
 import 'package:flutter/material.dart';
 
 
@@ -21,7 +22,11 @@ class _PupularShow_ScreenState extends State<PupularShow_Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('الأكثر شعبية'),//      S.of(context).,
+        title:Text( getLang(context, "PupularShow"), style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w900,
+                    fontSize: 18,
+                  ),),//      S.of(context).,
         titleTextStyle: const TextStyle(
           fontSize: 20,
           color: Colors.black,
@@ -64,20 +69,20 @@ class _PupularShow_ScreenState extends State<PupularShow_Screen> {
           unselectedIconTheme: IconThemeData(
             color: Color.fromARGB(255, 148, 145, 145),
           ),
-          items: const [
+          items:  [
             BottomNavigationBarItem(
-                icon: Icon(Icons.category_outlined, size: 20),
-                label: 'الأقسام'),
+                icon: const Icon(Icons.category_outlined, size: 20),
+                label: getLang(context, "Sections"),),
             BottomNavigationBarItem(
-              icon: Icon(Icons.playlist_play_outlined, size: 23),
-              label: 'قوائم التشغيل',
+              icon:const Icon(Icons.playlist_play_outlined, size: 23),
+              label: getLang(context,  "Playlists"),
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.person_pin_circle_outlined,
                 size: 25,
               ),
-              label: 'البروفايل',
+              label:getLang(context, "Profile" ),
             ),
             BottomNavigationBarItem(
 
@@ -86,117 +91,124 @@ class _PupularShow_ScreenState extends State<PupularShow_Screen> {
                   Icons.cottage_outlined,
                   size: 22,
                 ),
-                label: 'الرئيسية'),
+                label: getLang(context,   "Home"),),
           ]),
-      body: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 30, right: 30, top: 12),
-          child: ListView(
-            children: [
-              Stack(
-                children: [
-                  Container(
-                    width: 330,
-                    height: 300, //
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                          'assets/images/mashary.jfif',
-                        ),
-                        fit: BoxFit.cover,
+      body: Padding(
+        padding: const EdgeInsets.only(left: 30, right: 30, top: 12),
+        child: ListView(
+          children: [
+            Stack(
+              children: [
+                Container(
+                  width: 330,
+                  height: 300, //
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        'assets/images/mashary.jfif',
                       ),
-                      borderRadius: BorderRadius.all(Radius.circular(35)),
-                      color: Color.fromRGBO(132, 120, 246, 0.37),
+                      fit: BoxFit.cover,
                     ),
+                    borderRadius: BorderRadius.all(Radius.circular(35)),
+                    color: Color.fromRGBO(132, 120, 246, 0.37),
                   ),
-                  Positioned(
-                      top: 120,
-                      left: 140,
-                      child: Icon(
-                        Icons.video_collection_outlined,
-                        color: Colors.white,
-                        size: 60,
-                      )),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  MYButton(
-                      title: '  عرض الكل   ',
-                      Buttoncolor: baseColor,
-                      textcolor: Colors.white,
-                      fun: () {}),
-                  MYButton(
-                      title: 'اشتراك',
-                      Buttoncolor: Colors.white,
-                      textcolor: Colors.black,
-                      fun: () {
-                        Navigator.pushNamed(context, '/Subscribe');
-                      }),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'افضل الصوتيات المشغل مؤخرا',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w800,
-                          fontSize: 16,
-                        ), //textAlign:TextAlign.end
-                      )),
-                  Expanded(
-                    child: TextButton(
-                        onPressed: () {},
-                        child: const Text('عرض الكل',
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 100, 94, 94),
-                              fontWeight: FontWeight.w800,
-                              fontSize: 16,
-                            ),
-                            textAlign: TextAlign.center)),
-                  ),
-                ],
-              ),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  textDirection: TextDirection.rtl,
-                  verticalDirection: VerticalDirection.down,
-                  children: [
-                    MyListTile(
-                        imageUrl: 'assets/images/mashary.jfif',fun: (){},
-                        title: "سورة البقرة",
-                        sub_title: "برواية حفص"),
-                            MyListTile(
-                        imageUrl: 'assets/images/mashary.jfif',fun: (){},
-                        title: "سورة القصص",
-                        sub_title: "برواية حفص"),
-                            MyListTile(
-                        imageUrl: 'assets/images/mashary.jfif',fun: (){},
-                        title:   "سورة الكهف",
-                        sub_title: "برواية حفص"),
-                          MyListTile(
-                        imageUrl: 'assets/images/mashary.jfif',fun: (){},
-                        title:   "سورة الكهف",
-                        sub_title: "برواية حفص"), 
-                   
-                  ],
                 ),
-              )
-            ],
-          ),
+                Positioned(
+                    top: 120,
+                    left: 140,
+                    child: Icon(
+                      Icons.video_collection_outlined,
+                      color: Colors.white,
+                      size: 60,
+                    )),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                MYButton(
+                    title: getLang(context,  "SeeAll"),
+                    Buttoncolor: baseColor,
+                    textcolor: Colors.white,
+                    fun: () {}),
+                MYButton(
+                    title: getLang(context,  "Subscription"),
+                    Buttoncolor: Colors.white,
+                    textcolor: Colors.black,
+                    fun: () {
+                      Navigator.pushNamed(context, '/Subscribe');
+                    }),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TextButton(
+                    onPressed: () {},
+                    child: Text(
+                 getLang(context,   "Thebestaudio"),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 16,
+                      ), //textAlign:TextAlign.end
+                    )),
+                Expanded(
+                  child: TextButton(
+                      onPressed: () {},
+                      child: Text(getLang(context,  "SeeAll"),
+                          style: const TextStyle(
+                            color: Color.fromARGB(255, 100, 94, 94),
+                            fontWeight: FontWeight.w800,
+                            fontSize: 16,
+                          ),
+                          textAlign: TextAlign.center)),
+                ),
+              ],
+            ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                textDirection: TextDirection.rtl,
+                verticalDirection: VerticalDirection.down,
+                children: [
+                  MyListTile(
+                      imageUrl: 'assets/images/mashary.jfif',fun: (){},
+                      title: getLang(context,  "SouretElbakara"),
+                      sub_title:getLang(context,   "NarratedbyHafs")),
+                          MyListTile(
+                      imageUrl: 'assets/images/mashary.jfif',fun: (){},
+                      title: getLang(context,  "SouretAlkahf"),
+                      sub_title: getLang(context,   "NarratedbyHafs")),
+                       
+                  MyListTile(
+                      imageUrl: 'assets/images/mashary.jfif',fun: (){},
+                      title: getLang(context,  "SouretElbakara"),
+                      sub_title:getLang(context,   "NarratedbyHafs")),
+                          MyListTile(
+                      imageUrl: 'assets/images/mashary.jfif',fun: (){},
+                      title: getLang(context,  "SouretAlkahf"),
+                      sub_title: getLang(context,   "NarratedbyHafs")),
+                       
+                        MyListTile(
+                      imageUrl: 'assets/images/mashary.jfif',fun: (){},
+                      title: getLang(context,  "SouretElbakara"),
+                      sub_title:getLang(context,   "NarratedbyHafs")),
+                          MyListTile(
+                      imageUrl: 'assets/images/mashary.jfif',fun: (){},
+                      title: getLang(context,  "SouretAlkahf"),
+                      sub_title: getLang(context,   "NarratedbyHafs")),
+                       
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
