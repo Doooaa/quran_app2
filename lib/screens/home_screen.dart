@@ -1,4 +1,5 @@
 import '../widgets/consts.dart';
+import '../components/apploacal.dart';
 import 'package:flutter/material.dart';
 
 
@@ -34,7 +35,7 @@ class _HomeState extends State<Home> {
               ))
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
+       bottomNavigationBar: BottomNavigationBar(
           currentIndex: current_state,
           onTap: (value) {
             setState(() {
@@ -44,9 +45,9 @@ class _HomeState extends State<Home> {
             if (value == 3) {
               Navigator.pushNamed(context, '/home');
             }
-            if(value==1)
-            {
-               Navigator.pushNamed(context, '/playnow');
+           
+            if (value == 1) {
+              Navigator.pushNamed(context, '/playnow');
             }
           },
           showUnselectedLabels: true,
@@ -60,20 +61,20 @@ class _HomeState extends State<Home> {
           unselectedIconTheme: IconThemeData(
             color: Color.fromARGB(255, 148, 145, 145),
           ),
-          items: const [
+          items:  [
             BottomNavigationBarItem(
-                icon: Icon(Icons.category_outlined, size: 20),
-                label: 'الأقسام'),
+                icon: const Icon(Icons.category_outlined, size: 20),
+                label: getLang(context, "Sections"),),
             BottomNavigationBarItem(
-              icon: Icon(Icons.playlist_play_outlined, size: 23),
-              label: 'قوائم التشغيل',
+              icon:const Icon(Icons.playlist_play_outlined, size: 23),
+              label: getLang(context,  "Playlists"),
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.person_pin_circle_outlined,
                 size: 25,
               ),
-              label: 'البروفايل',
+              label:getLang(context, "Profile" ),
             ),
             BottomNavigationBarItem(
 
@@ -82,304 +83,298 @@ class _HomeState extends State<Home> {
                   Icons.cottage_outlined,
                   size: 22,
                 ),
-                label: 'الرئيسية'),
+                label: getLang(context,   "Home"),),
           ]),
-      body: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: ListView(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.arrow_back_ios,
-                        size: 20,
-                      )),
-                  Column(
-                    children: [
-                      const Text(
-                        "أفضل الصوتيات",
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 143, 138, 138),
-                          fontWeight: FontWeight.w500,
-                          fontSize: 15,
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: ListView(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.arrow_back_ios,
+                      size: 20,
+                    )),
+                Column(
+                  children: [
+                  Text(
+                    getLang(context,  "Thebestaudio"),
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 143, 138, 138),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15,
+                      ),
+                    ),
+                    Text(
+                getLang(context,  "For_this_month"),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 23,
+                      ), //
+                    ),
+                  ],
+                ),
+                IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.arrow_forward_ios,
+                          size: 20,
+                    )),
+              ],
+            ),
+                SizedBox(
+              height: 20,
+            ),
+          
+            Stack(
+              children: [
+                Center(
+                  child: Container(
+                    width: 320,
+                    height: 230, //
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          'assets/images/mashary.jfif',
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(35)),
+                      color: Color.fromRGBO(132, 120, 246, 0.37),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 25,
+                  child: Center(
+                    child: Container(
+                      width: 320,
+                      height: 80,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(35),
+                          bottomRight: Radius.circular(35),
+                        ),
+                        color: Color(0x799B8B8B),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                           getLang(context,  "SouretElbakara"),
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w900,
+                                fontSize: 18,
+                              ), //
+                            ),
+                            Expanded(
+                              child: Text(
+                             getLang(context,   "NarratedbyHafs"),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      Text(
-                        "لهذا الشهر",
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+          
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextButton(
+                    onPressed: () {},
+                    child: Text(
+                  getLang(context,  "Thebestaudio"),
+                      style:const TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w900,
+                        fontSize: 16,
+                      ), //textAlign:TextAlign.end
+                    )),
+                IconButton(
+                    onPressed: () {}, icon: Icon(Icons.format_line_spacing)),
+              ],
+            ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                textDirection: TextDirection.rtl,
+                verticalDirection: VerticalDirection.down,
+                children: [
+                  ListTile(
+                      leading: Container(
+                        width: 60,
+                        height: 200, //
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'assets/images/mashary.jfif',
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                          shape: BoxShape.rectangle,
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(10)),
+                          // color: Color.fromRGBO(132, 120, 246, 0.37),
+                        ),
+                      ),
+                      title: Text(
+                      getLang(context,  "SouretElbakara"),
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w800,
-                          fontSize: 23,
+                          fontSize: 16,
                         ), //
                       ),
-                    ],
-                  ),
-                  IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.arrow_forward_ios,
-                            size: 20,
+                      subtitle: Text(
+                     getLang(context,   "NarratedbyHafs"),
+                        style:const  TextStyle(
+                          color: Color.fromARGB(255, 143, 138, 138),
+                          fontWeight: FontWeight.w800,
+                          fontSize: 12,
+                        ),
+                      ),
+                      trailing: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.play_circle,
+                          color: baseColor,
+                          size: 30,
+                        ),
                       )),
-                ],
-              ),
-                  SizedBox(
-                height: 20,
-              ),
-            
-              Stack(
-                children: [
-                  Center(
-                    child: Container(
-                      width: 320,
-                      height: 230, //
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                            'assets/images/mashary.jfif',
+                  ListTile(
+                      leading: Container(
+                        width: 60,
+                        height: 250, //
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'assets/images/mashary.jfif',
+                            ),
+                            fit: BoxFit.cover,
                           ),
-                          fit: BoxFit.cover,
-                        ),
-                        borderRadius: BorderRadius.all(Radius.circular(35)),
-                        color: Color.fromRGBO(132, 120, 246, 0.37),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    right: 25,
-                    child: Center(
-                      child: Container(
-                        width: 320,
-                        height: 80,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(35),
-                            bottomRight: Radius.circular(35),
-                          ),
-                          color: Color(0x799B8B8B),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "سورة البقرة",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w900,
-                                  fontSize: 18,
-                                ), //
-                              ),
-                              Expanded(
-                                child: Text(
-                                  "برواية حفص",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w800,
-                                    fontSize: 14,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                          shape: BoxShape.rectangle,
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(10)),
+                          // color: Color.fromRGBO(132, 120, 246, 0.37),
                         ),
                       ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-            
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'افضل الصوتيات ',
+                      title: Text(
+                       getLang(context,  "SouretAlkahf"),
                         style: TextStyle(
                           color: Colors.black,
-                          fontWeight: FontWeight.w900,
+                          fontWeight: FontWeight.w800,
                           fontSize: 16,
-                        ), //textAlign:TextAlign.end
+                        ), //
+                      ),
+                      subtitle:  Text(
+                  getLang(context,   "NarratedbyHafs"),
+                        style: const TextStyle(
+                          color: Color.fromARGB(255, 143, 138, 138),
+                          fontWeight: FontWeight.w800,
+                          fontSize: 12,
+                        ),
+                      ),
+                      trailing: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.play_circle,
+                          color: baseColor,
+                          size: 30,
+                        ),
                       )),
-                  IconButton(
-                      onPressed: () {}, icon: Icon(Icons.format_line_spacing)),
+                  ListTile(
+                      leading: Container(
+                        width: 60,
+                        height: 200, //
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'assets/images/mashary.jfif',
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                          shape: BoxShape.rectangle,
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(10)),
+                          // color: Color.fromRGBO(132, 120, 246, 0.37),
+                        ),
+                      ),
+                      title: Text(
+                    getLang(context,  "SouretElbakara"),
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 16,
+                        ), //
+                      ),
+                      subtitle:  Text(
+                     getLang(context,   "NarratedbyHafs"),
+                        style: const TextStyle(
+                          color: Color.fromARGB(255, 143, 138, 138),
+                          fontWeight: FontWeight.w800,
+                          fontSize: 12,
+                        ),
+                      ),
+                      trailing: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.play_circle,
+                          color: baseColor,
+                          size: 30,
+                        ),
+                      )),
+                  ListTile(
+                      leading: Container(
+                        width: 60,
+                        height: 200, //
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'assets/images/mashary.jfif',
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                          shape: BoxShape.rectangle,
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(10)),
+                          // color: Color.fromRGBO(132, 120, 246, 0.37),
+                        ),
+                      ),
+                      title:
+                          const Positioned(left: 220, child: Text("data")),
+                      subtitle: Text("data"),
+                      trailing: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.play_circle,
+                          color: baseColor,
+                          size: 30,
+                        ),
+                      ))
                 ],
               ),
-              Directionality(
-                textDirection: TextDirection.rtl,
-                child: Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    textDirection: TextDirection.rtl,
-                    verticalDirection: VerticalDirection.down,
-                    children: [
-                      ListTile(
-                          leading: Container(
-                            width: 60,
-                            height: 200, //
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  'assets/images/mashary.jfif',
-                                ),
-                                fit: BoxFit.cover,
-                              ),
-                              shape: BoxShape.rectangle,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                              // color: Color.fromRGBO(132, 120, 246, 0.37),
-                            ),
-                          ),
-                          title: Text(
-                            "سورة البقرة",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w800,
-                              fontSize: 16,
-                            ), //
-                          ),
-                          subtitle: const Text(
-                            "برواية حفص",
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 143, 138, 138),
-                              fontWeight: FontWeight.w800,
-                              fontSize: 12,
-                            ),
-                          ),
-                          trailing: IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.play_circle,
-                              color: baseColor,
-                              size: 30,
-                            ),
-                          )),
-                      ListTile(
-                          leading: Container(
-                            width: 60,
-                            height: 250, //
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  'assets/images/mashary.jfif',
-                                ),
-                                fit: BoxFit.cover,
-                              ),
-                              shape: BoxShape.rectangle,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                              // color: Color.fromRGBO(132, 120, 246, 0.37),
-                            ),
-                          ),
-                          title: Text(
-                            "سورة الكهف",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w800,
-                              fontSize: 16,
-                            ), //
-                          ),
-                          subtitle: const Text(
-                            "برواية حفص",
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 143, 138, 138),
-                              fontWeight: FontWeight.w800,
-                              fontSize: 12,
-                            ),
-                          ),
-                          trailing: IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.play_circle,
-                              color: baseColor,
-                              size: 30,
-                            ),
-                          )),
-                      ListTile(
-                          leading: Container(
-                            width: 60,
-                            height: 200, //
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  'assets/images/mashary.jfif',
-                                ),
-                                fit: BoxFit.cover,
-                              ),
-                              shape: BoxShape.rectangle,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                              // color: Color.fromRGBO(132, 120, 246, 0.37),
-                            ),
-                          ),
-                          title: Text(
-                            "سورة القصص",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w800,
-                              fontSize: 16,
-                            ), //
-                          ),
-                          subtitle: const Text(
-                            "برواية حفص",
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 143, 138, 138),
-                              fontWeight: FontWeight.w800,
-                              fontSize: 12,
-                            ),
-                          ),
-                          trailing: IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.play_circle,
-                              color: baseColor,
-                              size: 30,
-                            ),
-                          )),
-                      ListTile(
-                          leading: Container(
-                            width: 60,
-                            height: 200, //
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  'assets/images/mashary.jfif',
-                                ),
-                                fit: BoxFit.cover,
-                              ),
-                              shape: BoxShape.rectangle,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                              // color: Color.fromRGBO(132, 120, 246, 0.37),
-                            ),
-                          ),
-                          title:
-                              const Positioned(left: 220, child: Text("data")),
-                          subtitle: Text("data"),
-                          trailing: IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.play_circle,
-                              color: baseColor,
-                              size: 30,
-                            ),
-                          ))
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );

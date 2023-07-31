@@ -1,4 +1,5 @@
 import '../widgets/consts.dart';
+import '../components/apploacal.dart';
 import 'package:flutter/material.dart';
 
 
@@ -17,7 +18,11 @@ class _SubscribeState extends State<Subscribe> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('الإشتراك'),
+          title: Text(   getLang(context, "Subscribe"),style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w900,
+                    fontSize: 19,
+                  ),),
           titleTextStyle: const TextStyle(
             fontSize: 20,
             color: Colors.black,
@@ -34,200 +39,197 @@ class _SubscribeState extends State<Subscribe> {
                 ))
           ],
         ),
-        body: Directionality(
-          textDirection: TextDirection.rtl,
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: ListView(
-              //mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                    'من هنا يمكنك اختيار القارئ المفضل لك واالاستماع لجميع التسجيلات الصوتية المتجدد',
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 143, 138, 138),
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                    )),
-                SizedBox(
-                  height: 5,
-                ),
-                ListTile(
-                    leading: Container(
-                      width: 80,
-                      height: 150, //
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                            'assets/images/mashary.jfif',
-                          ),
-                          fit: BoxFit.cover,
-                        ),
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        // color: Color.fromRGBO(132, 120, 246, 0.37),
-                      ),
-                    ),
-                    title: Text(
-                    "مشاري بن راشد العفاسي",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 16,
-                      ), //
-                    ),
-                 subtitle: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "114 مقطع صوتي",
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 143, 138, 138),
-                            fontWeight: FontWeight.w800,
-                            fontSize: 12,
-                          ),
-                        ),
-                        ElevatedButton(onPressed: (){}, 
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:baseColor, 
-                        ),
-                        child: 
-                        Text('اشتراك',style: TextStyle(
-                          color:  Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700
-                        ),)),
-                     
-                      ],
-                    ),
-                  
-                    ),
-                ListTile(
-                    leading: Container(
+        body: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: ListView(
+            //mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                   getLang(context,   "subtitle"),
+                 style: TextStyle(
+                    color: Color.fromARGB(255, 143, 138, 138),
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                  )),
+              SizedBox(
+                height: 5,
+              ),
+              ListTile(
+                  leading: Container(
                     width: 80,
-                      height: 150,//
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                            'assets/images/mashary.jfif',
-                          ),
-                          fit: BoxFit.cover,
+                    height: 150, //
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          'assets/images/mashary.jfif',
                         ),
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        // color: Color.fromRGBO(132, 120, 246, 0.37),
+                        fit: BoxFit.cover,
                       ),
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      // color: Color.fromRGBO(132, 120, 246, 0.37),
                     ),
-                    title: Text(
-                      "عبد الباسط عبد الصمد",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 16,
-                      ), //
-                    ),
-                    subtitle: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "114 مقطع صوتي",
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 143, 138, 138),
-                            fontWeight: FontWeight.w800,
-                            fontSize: 12,
-                          ),
-                        ),
-                        ElevatedButton(onPressed: (){}, 
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:baseColor, 
-                        ),
-                        child: 
-                        Text('اشتراك',style: TextStyle(
-                          color:  Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700
-                        ),)),
-                     
-                      ],
-                    ),
-                   ),
-                ListTile(
-                    leading: Container(
-                      width: 80,
-                      height: 150,//
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                            'assets/images/mashary.jfif',
-                          ),
-                          fit: BoxFit.cover,
-                        ),
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        // color: Color.fromRGBO(132, 120, 246, 0.37),
-                      ),
-                    ),
+                  ),
                   title: Text(
-                    "عبدالرحمن السديس",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 16,
-                      ), //
-                    ),
-                   subtitle: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "114 مقطع صوتي",
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 143, 138, 138),
-                            fontWeight: FontWeight.w800,
-                            fontSize: 12,
-                          ),
+                  getLang(context,   "reader1"),
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 16,
+                    ), //
+                  ),
+               subtitle: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        getLang(context,     "Audio "),
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 143, 138, 138),
+                          fontWeight: FontWeight.w800,
+                          fontSize: 12,
                         ),
-                        ElevatedButton(onPressed: (){}, 
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:baseColor, 
-                        ),
-                        child: 
-                        Text('اشتراك',style: TextStyle(
-                          color:  Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700
-                        ),)),
-                     
-                      ],
-                    ),
-                   ),
-               mylistTile(title: "سعود الشريم",
-                Mysubtitle: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "114 مقطع صوتي",
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 143, 138, 138),
-                            fontWeight: FontWeight.w800,
-                            fontSize: 12,
-                          ),
-                        ),
-                        ElevatedButton(onPressed: (){}, 
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:baseColor, 
-                        ),
-                        child: 
-                        Text('اشتراك',style: TextStyle(
-                          color:  Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700
-                        ),)),
-                     
-                      ],
-                    ),
+                      ),
+                      ElevatedButton(onPressed: (){}, 
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:baseColor, 
+                      ),
+                      child: 
+                      Text(   getLang(context,    "Subscribe"),style: TextStyle(
+                        color:  Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700
+                      ),)),
+                   
+                    ],
+                  ),
                 
-                  Myleading_insetImage:   'assets/images/mashary.jfif',)
-              ],
-            ),
+                  ),
+              ListTile(
+                  leading: Container(
+                  width: 80,
+                    height: 150,//
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          'assets/images/mashary.jfif',
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      // color: Color.fromRGBO(132, 120, 246, 0.37),
+                    ),
+                  ),
+                  title: Text(
+                getLang(context,   "reader2"),
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 16,
+                    ), //
+                  ),
+                  subtitle: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                 getLang(context,     "Audio "),
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 143, 138, 138),
+                          fontWeight: FontWeight.w800,
+                          fontSize: 12,
+                        ),
+                      ),
+                      ElevatedButton(onPressed: (){}, 
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:baseColor, 
+                      ),
+                      child: 
+                      Text( getLang(context,    "Subscribe"),style: TextStyle(
+                        color:  Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700
+                      ),)),
+                   
+                    ],
+                  ),
+                 ),
+              ListTile(
+                  leading: Container(
+                    width: 80,
+                    height: 150,//
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          'assets/images/mashary.jfif',
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      // color: Color.fromRGBO(132, 120, 246, 0.37),
+                    ),
+                  ),
+                title: Text(
+                  getLang(context,   "reader3"),
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 16,
+                    ), //
+                  ),
+                 subtitle: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                       getLang(context,     "Audio "),
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 143, 138, 138),
+                          fontWeight: FontWeight.w800,
+                          fontSize: 12,
+                        ),
+                      ),
+                      ElevatedButton(onPressed: (){}, 
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:baseColor, 
+                      ),
+                      child: 
+                      Text( getLang(context,    "Subscribe"),style: TextStyle(
+                        color:  Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700
+                      ),)),
+                   
+                    ],
+                  ),
+                 ),
+             mylistTile(title:   getLang(context,   "reader4"),
+              Mysubtitle: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                 getLang(context,     "Audio "),
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 143, 138, 138),
+                          fontWeight: FontWeight.w800,
+                          fontSize: 12,
+                        ),
+                      ),
+                      ElevatedButton(onPressed: (){}, 
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:baseColor, 
+                      ),
+                      child: 
+                      Text( getLang(context,    "Subscribe"),style: TextStyle(
+                        color:  Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700
+                      ),)),
+                   
+                    ],
+                  ),
+              
+                Myleading_insetImage:   'assets/images/mashary.jfif',)
+            ],
           ),
         ));
   }

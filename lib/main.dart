@@ -4,6 +4,9 @@ import 'screens/start_screen.dart';
 import 'screens/Pupular Show.dart';
 import 'screens/playNow_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:quran_app2/components/apploacal.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
 
 
 
@@ -14,7 +17,8 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(const MyApp());
 }
-
+ String lang="en";
+ 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -22,8 +26,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        
-
+      locale: Locale(lang),
+        localizationsDelegates: [
+          AppLocale.delegate,
+          GlobalMaterialLocalizations.delegate
+          ,GlobalWidgetsLocalizations.delegate,
+        ],
+supportedLocales: [
+  Locale('en',""),
+  Locale('ar',"")
+],
+ 
+localeListResolutionCallback: (current_lang, supported_lang) {
+  if(current_lang!=null)
+  {
+    if(lang=="en") return   supported_lang.first;
+    else  return   supported_lang.last;
+  }
+  return supported_lang.first;
+},
 
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
