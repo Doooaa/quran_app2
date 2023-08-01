@@ -2,9 +2,6 @@ import '../widgets/consts.dart';
 import '../components/apploacal.dart';
 import 'package:flutter/material.dart';
 
-
-
-
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -18,7 +15,13 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text(""),//  S.of(context)),
+        title: Text(getLang(context, "Home"),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 18,
+              color: Color.fromRGBO(20, 16, 51, 1),
+              fontWeight: FontWeight.w700,
+            )), //  S.of(context)),
         titleTextStyle: const TextStyle(
           fontSize: 20,
           color: Colors.black,
@@ -35,7 +38,7 @@ class _HomeState extends State<Home> {
               ))
         ],
       ),
-       bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
           currentIndex: current_state,
           onTap: (value) {
             setState(() {
@@ -45,7 +48,7 @@ class _HomeState extends State<Home> {
             if (value == 3) {
               Navigator.pushNamed(context, '/home');
             }
-           
+
             if (value == 1) {
               Navigator.pushNamed(context, '/playnow');
             }
@@ -61,29 +64,30 @@ class _HomeState extends State<Home> {
           unselectedIconTheme: IconThemeData(
             color: Color.fromARGB(255, 148, 145, 145),
           ),
-          items:  [
+          items: [
             BottomNavigationBarItem(
-                icon: const Icon(Icons.category_outlined, size: 20),
-                label: getLang(context, "Sections"),),
+              icon: const Icon(Icons.category_outlined, size: 20),
+              label: getLang(context, "Sections"),
+            ),
             BottomNavigationBarItem(
-              icon:const Icon(Icons.playlist_play_outlined, size: 23),
-              label: getLang(context,  "Playlists"),
+              icon: const Icon(Icons.playlist_play_outlined, size: 23),
+              label: getLang(context, "Playlists"),
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.person_pin_circle_outlined,
                 size: 25,
               ),
-              label:getLang(context, "Profile" ),
+              label: getLang(context, "Profile"),
             ),
             BottomNavigationBarItem(
-
-                //backgroundColor:Colors.black,
-                icon: Icon(
-                  Icons.cottage_outlined,
-                  size: 22,
-                ),
-                label: getLang(context,   "Home"),),
+              //backgroundColor:Colors.black,
+              icon: Icon(
+                Icons.cottage_outlined,
+                size: 22,
+              ),
+              label: getLang(context, "Home"),
+            ),
           ]),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -100,8 +104,8 @@ class _HomeState extends State<Home> {
                     )),
                 Column(
                   children: [
-                  Text(
-                    getLang(context,  "Thebestaudio"),
+                    Text(
+                      getLang(context, "Thebestaudio"),
                       style: TextStyle(
                         color: Color.fromARGB(255, 143, 138, 138),
                         fontWeight: FontWeight.w500,
@@ -109,7 +113,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     Text(
-                getLang(context,  "For_this_month"),
+                      getLang(context, "For_this_month"),
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w800,
@@ -122,14 +126,13 @@ class _HomeState extends State<Home> {
                     onPressed: () {},
                     icon: Icon(
                       Icons.arrow_forward_ios,
-                          size: 20,
+                      size: 20,
                     )),
               ],
             ),
-                SizedBox(
+            SizedBox(
               height: 20,
             ),
-          
             Stack(
               children: [
                 Center(
@@ -168,7 +171,7 @@ class _HomeState extends State<Home> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                           getLang(context,  "SouretElbakara"),
+                              getLang(context, "SouretElbakara"),
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w900,
@@ -177,7 +180,7 @@ class _HomeState extends State<Home> {
                             ),
                             Expanded(
                               child: Text(
-                             getLang(context,   "NarratedbyHafs"),
+                                getLang(context, "NarratedbyHafs"),
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w800,
@@ -196,15 +199,14 @@ class _HomeState extends State<Home> {
             SizedBox(
               height: 20,
             ),
-          
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextButton(
                     onPressed: () {},
                     child: Text(
-                  getLang(context,  "Thebestaudio"),
-                      style:const TextStyle(
+                      getLang(context, "Thebestaudio"),
+                      style: const TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w900,
                         fontSize: 16,
@@ -232,13 +234,12 @@ class _HomeState extends State<Home> {
                             fit: BoxFit.cover,
                           ),
                           shape: BoxShape.rectangle,
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10)),
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
                           // color: Color.fromRGBO(132, 120, 246, 0.37),
                         ),
                       ),
                       title: Text(
-                      getLang(context,  "SouretElbakara"),
+                        getLang(context, "SouretElbakara"),
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w800,
@@ -246,8 +247,8 @@ class _HomeState extends State<Home> {
                         ), //
                       ),
                       subtitle: Text(
-                     getLang(context,   "NarratedbyHafs"),
-                        style:const  TextStyle(
+                        getLang(context, "NarratedbyHafs"),
+                        style: const TextStyle(
                           color: Color.fromARGB(255, 143, 138, 138),
                           fontWeight: FontWeight.w800,
                           fontSize: 12,
@@ -273,21 +274,20 @@ class _HomeState extends State<Home> {
                             fit: BoxFit.cover,
                           ),
                           shape: BoxShape.rectangle,
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10)),
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
                           // color: Color.fromRGBO(132, 120, 246, 0.37),
                         ),
                       ),
                       title: Text(
-                       getLang(context,  "SouretAlkahf"),
+                        getLang(context, "SouretAlkahf"),
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w800,
                           fontSize: 16,
                         ), //
                       ),
-                      subtitle:  Text(
-                  getLang(context,   "NarratedbyHafs"),
+                      subtitle: Text(
+                        getLang(context, "NarratedbyHafs"),
                         style: const TextStyle(
                           color: Color.fromARGB(255, 143, 138, 138),
                           fontWeight: FontWeight.w800,
@@ -314,21 +314,20 @@ class _HomeState extends State<Home> {
                             fit: BoxFit.cover,
                           ),
                           shape: BoxShape.rectangle,
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10)),
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
                           // color: Color.fromRGBO(132, 120, 246, 0.37),
                         ),
                       ),
                       title: Text(
-                    getLang(context,  "SouretElbakara"),
+                        getLang(context, "SouretElbakara"),
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w800,
                           fontSize: 16,
                         ), //
                       ),
-                      subtitle:  Text(
-                     getLang(context,   "NarratedbyHafs"),
+                      subtitle: Text(
+                        getLang(context, "NarratedbyHafs"),
                         style: const TextStyle(
                           color: Color.fromARGB(255, 143, 138, 138),
                           fontWeight: FontWeight.w800,
@@ -355,13 +354,11 @@ class _HomeState extends State<Home> {
                             fit: BoxFit.cover,
                           ),
                           shape: BoxShape.rectangle,
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10)),
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
                           // color: Color.fromRGBO(132, 120, 246, 0.37),
                         ),
                       ),
-                      title:
-                          const Positioned(left: 220, child: Text("data")),
+                      title: const Positioned(left: 220, child: Text("data")),
                       subtitle: Text("data"),
                       trailing: IconButton(
                         onPressed: () {},

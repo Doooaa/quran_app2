@@ -13,8 +13,8 @@ class _Start_ScreenState extends State<Start_Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(left: 18, right: 18),
-        child: ListView(
+        padding: const EdgeInsets.all(20),
+        child: Column(
           children: [
             Stack(
               children: [
@@ -57,7 +57,7 @@ class _Start_ScreenState extends State<Start_Screen> {
                     ))
               ],
             ),
-            const SizedBox(
+         SizedBox(
               height: 10,
             ),
             Text(
@@ -83,7 +83,7 @@ class _Start_ScreenState extends State<Start_Screen> {
               ),
             ),
             const SizedBox(
-              height: 10,
+              height: 20,
             ),
             SizedBox(
                 width: 330.0,

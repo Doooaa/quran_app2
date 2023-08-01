@@ -2,10 +2,6 @@ import '../widgets/consts.dart';
 import '../components/apploacal.dart';
 import 'package:flutter/material.dart';
 
-
-
-
-
 class Subscribe extends StatefulWidget {
   const Subscribe({super.key});
 
