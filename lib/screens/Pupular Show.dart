@@ -1,8 +1,10 @@
 import '../widgets/consts.dart';
 import '../widgets/Mybutton.dart';
 import '../widgets/Mylistetile.dart';
+import 'package:quran_app2/main.dart';
 import '../components/apploacal.dart';
 import 'package:flutter/material.dart';
+
 
 
 
@@ -44,12 +46,14 @@ class _PupularShow_ScreenState extends State<PupularShow_Screen> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        
           currentIndex: current_state,
           onTap: (value) {
             setState(() {
               current_state = value;
             });
-            print(value);
+           // print(value);
+              
             if (value == 3) {
               Navigator.pushNamed(context, '/home');
             }

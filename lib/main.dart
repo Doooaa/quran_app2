@@ -9,15 +9,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 
 
-
-
-
-
-
 void main() {
   runApp(const MyApp());
 }
- String lang="en";
+
  
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -26,6 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
       locale: Locale(lang),
         localizationsDelegates: [
           AppLocale.delegate,
@@ -51,6 +47,7 @@ localeListResolutionCallback: (current_lang, supported_lang) {
       theme: ThemeData(
      //    canvasColor:Color.fromRGBO(132, 120, 246, 1),
         colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(132, 120, 246, 1)),
+        fontFamily: 'REM',
         useMaterial3: true,
       ),
       initialRoute: '/',
@@ -67,6 +64,6 @@ localeListResolutionCallback: (current_lang, supported_lang) {
 }
 
 
-
+ String lang="en";
 
 

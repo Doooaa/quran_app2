@@ -111,7 +111,7 @@ class _Start_ScreenState extends State<Start_Screen> {
                     getLang(context,
                         "s_textbottonT"), // S.of(context).s_textbottonT,
                     style: const TextStyle(
-                      fontSize: 16,
+                      fontSize: 14,
                       fontWeight: FontWeight.w700,
                       color: Color.fromRGBO(132, 120, 246, 1),
                     ))),

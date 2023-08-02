@@ -65,9 +65,13 @@ class _HomeState extends State<Home> {
             color: Color.fromARGB(255, 148, 145, 145),
           ),
           items: [
-            BottomNavigationBarItem(
-              icon: const Icon(Icons.category_outlined, size: 20),
-              label: getLang(context, "Sections"),
+               BottomNavigationBarItem(
+              //backgroundColor:Colors.black,
+              icon: Icon(
+                Icons.cottage_outlined,
+                size: 22,
+              ),
+              label: getLang(context, "Home"),
             ),
             BottomNavigationBarItem(
               icon: const Icon(Icons.playlist_play_outlined, size: 23),
@@ -79,15 +83,13 @@ class _HomeState extends State<Home> {
                 size: 25,
               ),
               label: getLang(context, "Profile"),
+            ), 
+            
+             BottomNavigationBarItem(
+              icon: const Icon(Icons.category_outlined, size: 20),
+              label: getLang(context, "Sections"),
             ),
-            BottomNavigationBarItem(
-              //backgroundColor:Colors.black,
-              icon: Icon(
-                Icons.cottage_outlined,
-                size: 22,
-              ),
-              label: getLang(context, "Home"),
-            ),
+           
           ]),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
